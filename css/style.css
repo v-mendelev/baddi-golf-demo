@@ -1,0 +1,391 @@
+/* ===== Palette ===== */
+:root {
+    --green: #2e7d32;
+    --green-700: #1b5e20;
+    --gold: #c8a600;
+    --ink: #1f2328;
+    --muted: #f6f7f8;
+    --white: #fff;
+    --border: #e5e7eb;
+}
+
+/* ===== Base (mobile-first) ===== */
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--muted);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block
+}
+
+a {
+    color: var(--green-700);
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+.small {
+    font-size: .875rem;
+    color: #666
+}
+
+.container {
+    max-width: 980px;
+    margin: auto;
+    padding: 0 16px
+}
+
+/* ===== Header ===== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: linear-gradient(0deg, rgba(255, 255, 255, .85), var(--white));
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--ink)
+}
+
+.brand-mark {
+    font-size: 1.25rem
+}
+
+.brand-text {
+    letter-spacing: .2px
+}
+
+.nav-toggle {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: var(--white);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer
+}
+
+.site-nav {
+    position: fixed;
+    inset: 56px 0 auto 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 16px
+}
+
+.site-nav a {
+    padding: 8px 10px;
+    border-radius: 8px
+}
+
+.site-nav .btn {
+    color: #fff
+}
+
+.site-nav.open {
+    display: flex
+}
+
+/* Desktop nav */
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none
+    }
+
+    .site-nav {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        border: 0;
+        background: transparent;
+        padding: 0
+    }
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: transform .06s ease, box-shadow .2s ease;
+    text-align: center;
+}
+
+.btn:active {
+    transform: translateY(1px)
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, var(--gold), #a68d00);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(200, 166, 0, .3);
+}
+
+.btn-outline {
+    background: var(--white);
+    border-color: var(--border);
+    color: var(--ink);
+}
+
+/* ===== Hero ===== */
+.hero {
+    background:
+        linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
+        url("../res/images/hero.jpg") center/cover no-repeat;
+    color: #fff;
+}
+
+.hero-inner {
+    padding: 68px 16px 56px
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+    font-size: 1.9rem;
+    line-height: 1.2
+}
+
+.hero .sub {
+    margin: 0 0 18px;
+    color: #f0f3f5
+}
+
+.cta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+/* ===== Sections ===== */
+.section {
+    padding: 40px 0;
+    background: var(--muted)
+}
+
+.section-alt {
+    background: var(--white)
+}
+
+.section h2 {
+    margin: 0 0 16px;
+    color: var(--green)
+}
+
+.center {
+    text-align: center;
+    margin-top: 10px
+}
+
+/* ===== Cards (Offers) ===== */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--white);
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+}
+
+.card h3 {
+    margin: 0 0 6px
+}
+
+.card .meta {
+    margin: 10px 0 0;
+    color: #666
+}
+
+/* 2/3 columns on larger screens */
+@media (min-width: 560px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media (min-width: 920px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+/* ===== Steps ===== */
+.steps {
+    margin: 0;
+    padding-left: 22px
+}
+
+.step-ico {
+    margin-right: 8px
+}
+
+/* ===== Map ===== */
+.map-box {
+    margin: 12px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #e5e7eb
+}
+
+.chip-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
+.chip {
+    display: inline-block;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 12px
+}
+
+/* ===== Testimonials ===== */
+.quotes {
+    display: grid;
+    gap: 12px
+}
+
+.quote {
+    padding: 14px;
+    border-left: 4px solid var(--green);
+    background: var(--white);
+    border-radius: 8px
+}
+
+.quote blockquote {
+    margin: 0 0 6px;
+    font-style: italic
+}
+
+/* ===== FAQ ===== */
+details {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 8px 0
+}
+
+details>summary {
+    cursor: pointer;
+    font-weight: 600
+}
+
+/* ===== Contact ===== */
+.quick-contacts {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px
+}
+
+.qc {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--white)
+}
+
+.contact-form {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white)
+}
+
+.contact-form .hp {
+    display: none
+}
+
+.consent {
+    font-size: .9rem;
+    color: #444
+}
+
+.form-note {
+    font-size: .9rem;
+    color: #666;
+    margin: 2px 0 0
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background: var(--ink);
+    color: #e5e5e5;
+    padding: 22px 0;
+    margin-top: 24px
+}
+
+.footer-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.footer-nav a {
+    color: #e5e5e5;
+    margin-right: 12px
+}
+
+.brand--footer {
+    color: #fff
+}
